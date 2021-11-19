@@ -37,7 +37,7 @@
       <div v-for="food in Cart" :key="food.id" style="display: flex; justify-content: space-between; background-color:#E8E8E8;border-radius: 10px; margin: 20px auto"><h1 v-if="food.qtity>0" style="font-weight: lighter; font-size:40px; margin-left:10px">{{food.qtity}} x {{food.name}}: </h1><h1 v-if="food.qtity>0" style="text-align:right;margin-right:10px;color:#FA5401">${{food.price}}</h1></div>
       <div style="text-align: right; font-size: 40px; border-top: double 2px lightgrey">Total: ${{total}}</div>
       
-      <div class="buttonclass"><GooglePay /></div>
+      <div class="buttonclass"><GooglePay :pay_total="total"/></div>
 
       
     </b-col>

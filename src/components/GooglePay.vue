@@ -1,6 +1,7 @@
 <template>
   <div class="example">
     <div class="demo">
+      {{pay_total}}
       <google-pay-button
         environment="TEST"
         v-bind:button-type="buttonType"
@@ -14,6 +15,7 @@
           transactionInfo: {
             totalPriceStatus: 'FINAL',
             totalPriceLabel: 'Total',
+            // totalPrice: '{{pay_total}}',
             totalPrice: amount,
             currencyCode: 'USD',
             countryCode: 'US',
@@ -32,39 +34,86 @@
 import "@google-pay/button-element";
 export default {
   name: "GooglePay",
-  props: {},
-  data: () => ({
-    amount: "0.00",
-    //amount: "app.{{total}}",
+  props:  ['pay_total'],
+ 
+  // props: {
+  //   pay_total: Number
+  // },
+  
+  data () {
+    return {
+      // amount: this.pay_total,
+      amount: "0.00",
+      //amount: "app.{{total}}",
 
-    existingPaymentMethodRequired: true,
-    buttonColor: "#dc3545",
-    buttonType: "buy",
-    paymentRequest: {
-      apiVersion: 2,
-      apiVersionMinor: 0,
-      allowedPaymentMethods: [
-        {
-          type: "CARD",
-          parameters: {
-            allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
-            allowedCardNetworks: ["MASTERCARD", "VISA"],
-          },
-          tokenizationSpecification: {
-            type: "PAYMENT_GATEWAY",
+      existingPaymentMethodRequired: true,
+      buttonColor: "#dc3545",
+      buttonType: "buy",
+      paymentRequest: {
+        apiVersion: 2,
+        apiVersionMinor: 0,
+        allowedPaymentMethods: [
+          {
+            type: "CARD",
             parameters: {
-              gateway: "example",
-              gatewayMerchantId: "exampleGatewayMerchantId",
+              allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
+              allowedCardNetworks: ["MASTERCARD", "VISA"],
+            },
+            tokenizationSpecification: {
+              type: "PAYMENT_GATEWAY",
+              parameters: {
+                gateway: "example",
+                gatewayMerchantId: "exampleGatewayMerchantId",
+              },
             },
           },
+        ],
+        merchantInfo: {
+          merchantId: "12345678901234567890",
+          merchantName: "Demo Merchant",
         },
-      ],
-      merchantInfo: {
-        merchantId: "12345678901234567890",
-        merchantName: "Demo Merchant",
       },
-    },
-  }),
+    }
+},
+
+
+
+  // data: () => ({
+  //   // pay_total: "1.00",
+  //   amount: "10.00",
+  //   // amount: "0.00",
+  //   //amount: "app.{{total}}",
+
+  //   existingPaymentMethodRequired: true,
+  //   buttonColor: "#dc3545",
+  //   buttonType: "buy",
+  //   paymentRequest: {
+  //     apiVersion: 2,
+  //     apiVersionMinor: 0,
+  //     allowedPaymentMethods: [
+  //       {
+  //         type: "CARD",
+  //         parameters: {
+  //           allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
+  //           allowedCardNetworks: ["MASTERCARD", "VISA"],
+  //         },
+  //         tokenizationSpecification: {
+  //           type: "PAYMENT_GATEWAY",
+  //           parameters: {
+  //             gateway: "example",
+  //             gatewayMerchantId: "exampleGatewayMerchantId",
+  //           },
+  //         },
+  //       },
+  //     ],
+  //     merchantInfo: {
+  //       merchantId: "12345678901234567890",
+  //       merchantName: "Demo Merchant",
+  //     },
+  //   },
+  // }),
+
+
   methods: {
     onLoadPaymentData: (event) => {
       console.log("load payment data", event.detail);

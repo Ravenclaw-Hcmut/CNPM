@@ -19,14 +19,15 @@
 				<b-col>
 					<b-container>
 						<b-row class="mt-4">
-								<b-col class="">
-								<div class="h2">{{food.name}}</div>
-								</b-col>
-								<b-col>
-								<span class="float-right mx-2 mt-0">
-									<span class="h2"> Price: {{food.price}}</span>
-								</span>
-								</b-col>
+							<b-col class=""> 
+							<div class="h2">{{food.name}}</div>
+							</b-col>
+							<b-col>
+							<!-- <span class="buttonclass"><GooglePay /></span> -->
+							<span class="float-right mx-2 mt-0">
+								<span class="h2"> Price: {{food.price}}</span>
+							</span>
+							</b-col>
 						</b-row>
 						<b-row class="mt-4" style="margin-top: 0px;">
 							<b-col style="margin-top: 0px;">
@@ -71,15 +72,23 @@
 
 				</b-col>
 			</b-row>
+			
+
 		</b-container>
 	</div>
 </div>
 </template>
 <script>
+
+// import GooglePay from "./GooglePay";
+
 export default {
 	name:'ModalFood',
 	props:{
 		food:Object,
+	},
+	components: {
+		// GooglePay,
 	},
 	data(){
 		return{
@@ -136,6 +145,8 @@ export default {
 	z-index: 100rem;
 	border-radius:1rem ;
   }
-	
+  /* .buttonclass {
+    text-align: center;
+  } */
   
 </style>
