@@ -4,7 +4,7 @@
 ```
 npm install
 ```
-
+npm install --save mdbvue 
 ### Compiles and hot-reloads for development
 ```
 npm run serve

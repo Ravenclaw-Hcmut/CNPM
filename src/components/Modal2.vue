@@ -108,6 +108,17 @@ export default {
 	},
 	emits:['order-up','close']
 }
+//=======================================================================================
+  import { mdbFooter, mdbContainer, mdbRow, mdbCol } from 'mdbvue';
+  export default {
+    name: 'FooterPage',
+    components: {
+      mdbFooter,
+      mdbContainer,
+      mdbRow,
+      mdbCol
+    }
+  }
 </script>
 <style scope>
 	

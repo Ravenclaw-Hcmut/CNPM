@@ -16,7 +16,7 @@
             totalPriceStatus: 'FINAL',
             totalPriceLabel: 'Total',
             // totalPrice: '{{pay_total}}',
-            totalPrice: amount,
+            totalPrice: getTotalPrice(),
             currencyCode: 'USD',
             countryCode: 'US',
           },
@@ -34,16 +34,18 @@
 import "@google-pay/button-element";
 export default {
   name: "GooglePay",
-  props:  ['pay_total'],
+  // props:  ['pay_total'],
  
-  // props: {
-  //   pay_total: Number
-  // },
+  props: {
+    pay_total: Number
+  },
   
   data () {
     return {
       // amount: this.pay_total,
-      amount: "0.00",
+      // amount: "0.00",
+      amount: this.pay_total.toString(),
+      // amount: "this.pay_total.toString()",
       //amount: "app.{{total}}",
 
       existingPaymentMethodRequired: true,
@@ -126,6 +128,9 @@ export default {
       return {
         transactionState: "SUCCESS",
       };
+    },
+    getTotalPrice() {
+      return this.pay_total.toString();
     },
   },
 };
