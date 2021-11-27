@@ -1,7 +1,6 @@
 <template>
   <div class="example">
     <div class="demo">
-      {{pay_total}}
       <google-pay-button
         environment="TEST"
         v-bind:button-type="buttonType"
