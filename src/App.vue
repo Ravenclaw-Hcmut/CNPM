@@ -37,8 +37,12 @@
       <div v-for="food in Cart" :key="food.id" style="display: flex; justify-content: space-between; background-color:#E8E8E8;border-radius: 10px; margin: 20px auto"><h1 v-if="food.qtity>0" style="font-weight: lighter; font-size:40px; margin-left:10px">{{food.qtity}} x {{food.name}}: </h1><h1 v-if="food.qtity>0" style="text-align:right;margin-right:10px;color:#FA5401">${{food.price}}</h1></div>
       <div style="text-align: right; font-size: 40px; border-top: double 2px lightgrey">Total: ${{total}}</div>
       
-      <!-- <div class="buttonclass"><GooglePay :pay_total="total"/></div> -->
-      <mdb-footer color="blue" class="font-small pt-4 mt-4">
+      <div class="buttonclass sticky"><GooglePay :pay_total="total"/></div>
+      
+      <!-- <div><FormInfo @close="closeModal" v-show="this.openModal" /></div> -->
+      <!-- <Checkout : @close="closeModal" v-show="this.openModal" /> -->
+
+      <!-- <mdb-footer color="blue" class="font-small pt-4 mt-4">
         <mdb-container class="text-left">
           <mdb-row>
             <mdb-col sm="12">
@@ -46,7 +50,7 @@
             </mdb-col>
           </mdb-row>
         </mdb-container>
-      </mdb-footer>
+      </mdb-footer> -->
       
     </b-col>
     </b-row>
@@ -61,8 +65,9 @@ import ModalFood from './components/Modal.vue'
 
 // import HelloWorld from "./components/HelloWorld";
 import GooglePay from "./components/GooglePay";
+// import FormInfo from './components/FormInfo.vue';
 
-import { mdbFooter, mdbContainer, mdbRow, mdbCol } from 'mdbvue';
+// import { mdbFooter, mdbContainer, mdbRow, mdbCol } from 'mdbvue';
 // export default {
 // }
 
@@ -75,10 +80,11 @@ export default {
     Menu,ModalFood,
     // HelloWorld,
     GooglePay,
-    mdbFooter,
-    mdbContainer,
-    mdbRow,
-    mdbCol
+    // FormInfo,
+    // mdbFooter,
+    // mdbContainer,
+    // mdbRow,
+    // mdbCol
   },
   data(){
     return{
@@ -168,4 +174,16 @@ export default {
   .buttonclass {
     text-align: center;
   }
+  div.sticky {
+    /* position: sticky;
+    bottom: 10px;
+    border: 3px solid #8AC007; */
+    /* position: absolute; */
+    bottom: 8px;
+    right: 16px;
+    font-size: 18px;
+
+    position: fixed;
+    text-align: center;
+  } 
 </style>

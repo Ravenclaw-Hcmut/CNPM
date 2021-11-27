@@ -2,11 +2,12 @@
   <div>
      <!-- carousel area -->
     <b-card-group deck class="mb-0">
-        <b-card  v-for="item in currentPageCards" :key="item.index" class=" center border-2 " @click="$emit('change-filter',item.id)">
+        <b-card  v-for="item in currentPageCards" :key="item.index" class="center border-2" @click="$emit('change-filter',item.id)">
             <!-- card content -->
-			<b-card-text class="text-align-center">
+			<b-card-text class="text-align-center box_head" style=" padding:0 !important; min-width: 300% !important;">
+			<!-- <b-card-text class="text-align-center box_head"> -->
 			{{item.name}}
-		</b-card-text>
+            </b-card-text>
         </b-card>
     </b-card-group>
 
@@ -98,4 +99,11 @@
     width:2rem;
     height:2rem;
 }
+
+/* .box_head {
+    min-width: 300%;
+    height: 80%;
+    padding: 0;
+    margin: auto;
+} */
 </style>
