@@ -15,6 +15,14 @@ python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
 ```
+
+## Bootstrap for databases
+Use [Postman](https://www.postman.com/downloads/) or vscode [Thunder client extension](https://www.thunderclient.io/)
+to send POST request to the server using the following files:
+- http://localhost:8000/api/foods/ <- [bootstrap-foods.json](./bootstrap-foods.json)
+- http://localhost:8000/api/type/ <- [bootstrap-types.json](./bootstrap-types.json)
+- http://localhost:8000/api/side/ <- [bootstrap-sides.json](./bootstrap-sides.json)
+
 ## Project setup
 ```
 cd ..
