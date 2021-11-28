@@ -1,7 +1,20 @@
-# my-project
+# Restuarant project
+## Install dependencies for backend
+```
+cd backend
+pip install pipenv
+pipenv sync
+```
 
+## Run backend
+```
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+```
 ## Project setup
 ```
+cd ..
 npm install
 ```
 

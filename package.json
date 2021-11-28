@@ -2,6 +2,7 @@
   "name": "my-project",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8000",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -9,6 +10,7 @@
   },
   "dependencies": {
     "@google-pay/button-element": "^3.0.0",
+    "axios": "^0.24.0",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
     "vue": "^2.6.11"
