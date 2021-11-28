@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <button @click="togglePayment = true">Thanh toán</button>
+      <b-button @click="togglePayment = true">Điền thông tin thanh toán</b-button>
     </div>
     <modal-payment :pay_total="pay_total" @close="closePayment" v-show="togglePayment"/>
   </div>

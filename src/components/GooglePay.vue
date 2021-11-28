@@ -1,5 +1,8 @@
 <template>
   <div class="example">
+    <div>
+      <payment-info :pay_total="getTotalPrice()" />
+    </div>
     <div class="demo">
       <google-pay-button
         environment="TEST"
@@ -25,17 +28,16 @@
         v-bind:onPaymentAuthorized.prop="onPaymentDataAuthorized"
       ></google-pay-button>
     </div>
-    <payment-info :pay_total="getTotalPrice()"/> 
   </div>
 </template>
 
 <script>
 import "@google-pay/button-element";
-import PaymentInfo from './PaymentInfo.vue';
+import PaymentInfo from "./PaymentInfo.vue";
 export default {
   name: "GooglePay",
   components: {
-    'payment-info': PaymentInfo,
+    "payment-info": PaymentInfo,
   },
   props: ["pay_total"],
 
@@ -103,7 +105,11 @@ export default {
 .example {
   margin: 5px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+}
+
+.example > * {
+  margin-bottom: 1rem;
 }
 
 .example > .demo {

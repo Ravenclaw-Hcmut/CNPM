@@ -7,6 +7,8 @@ pipenv shell
 pipenv sync
 ```
 
+Go to src/settings.py and change the database, user and password
+
 ## Run backend
 ```
 python manage.py makemigrations

@@ -8,7 +8,6 @@
                 :key="item.index"
                 class="center border-2"
                 @click="$emit('change-filter',item.id)" :img-src="item.src" :img-alt="item.name" img-top>
-            >
                 <!-- card content -->
                 <b-card-text class="text-align-center">{{ item.name }}</b-card-text>
             </b-card>
