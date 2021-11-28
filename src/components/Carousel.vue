@@ -1,4 +1,5 @@
 <template>
+
     <div>
         <!-- carousel area -->
         <b-card-group deck class="mb-0">
@@ -12,6 +13,7 @@
                 <b-card-text class="text-align-center">{{ item.name }}</b-card-text>
             </b-card>
         </b-card-group>
+
 
         <!-- pagination area -->
         <div class="pagination" :v-if="cards.length > cardsPerPage">
